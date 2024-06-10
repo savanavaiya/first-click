@@ -74,15 +74,15 @@ class UsersImport implements ToModel, WithStartRow
                 // $store_address = $datalocation->results[0]->formatted_address;
 
                 $cnt2 = count($datalocation->results);
+                $store_address = null;
 
-                for($a=0;$a<$cnt2;$a++)
-                {
-                    if($datalocation->results[$a]->types == 'street_address')
-                    {
+                for ($a = 0; $a < $cnt2; $a++) {
+                    if (in_array('street_address',$datalocation->results[$a]->types) ) {
                         $store_address = $datalocation->results[$a]->formatted_address;
-                    }else{
-                        $store_address = $datalocation->results[0]->formatted_address;
                     }
+                }
+                if($store_address == null){
+                    $store_address = $datalocation->results[0]->formatted_address;
                 }
             } else {
                 return response()->json(['success' => 'false', 'message' => 'Something Went Wrong'], 404);
@@ -101,7 +101,10 @@ class UsersImport implements ToModel, WithStartRow
                 foreach($diesel as $key1=>$value1)
                 {
                     if(is_null($value1) || $value1 == '')
-                        unset($diesel[$key1]);
+                    {
+                        $diesel[$key1] = '0';
+                    }
+                        // unset($diesel[$key1]);
                 }
 
                 //for filter set first in other field
@@ -122,8 +125,10 @@ class UsersImport implements ToModel, WithStartRow
                 //remove null
                 foreach($gasoline as $key2=>$value2)
                 {
-                    if(is_null($value2) || $value2 == '')
-                        unset($gasoline[$key2]);
+                    if(is_null($value2) || $value2 == ''){
+                        $gasoline[$key2] = '0';
+                    }
+                        // unset($gasoline[$key2]);
                 }
 
                 //for filter set first in other field
@@ -164,7 +169,7 @@ class UsersImport implements ToModel, WithStartRow
                 'store_location_longitude' => $longitude,
                 'diesel' => $diesel,
                 'gasoline' => $gasoline,
-                'otherinfo' => $row[7],
+                'otherinfo' => isset($row[7]) ? $row[7] : null,
                 'brand_logo' => $brand_logo,
                 'store_image' => $store_image,
                 'forfil_price_diesel' => $forfil_price_diesel,
@@ -220,7 +225,10 @@ class UsersImport implements ToModel, WithStartRow
                 foreach($diesel as $key1=>$value1)
                 {
                     if(is_null($value1) || $value1 == '')
-                        unset($diesel[$key1]);
+                    {
+                        $diesel[$key1] = '0';
+                    }
+                        // unset($diesel[$key1]);
                 }
 
                 //for filter set first in other field
@@ -242,7 +250,10 @@ class UsersImport implements ToModel, WithStartRow
                 foreach($gasoline as $key2=>$value2)
                 {
                     if(is_null($value2) || $value2 == '')
-                        unset($gasoline[$key2]);
+                    {
+                        $gasoline[$key2] = '0';
+                    }
+                        // unset($gasoline[$key2]);
                 }
 
                 //for filter set first in other field
@@ -260,7 +271,7 @@ class UsersImport implements ToModel, WithStartRow
             $coredata->forfil_price_diesel = $forfil_price_diesel;
             $coredata->forfil_price_gasoline = $forfil_price_gasoline;
 
-            $coredata->otherinfo = $row[7];
+            $coredata->otherinfo = isset($row[7]) ? $row[7] : null;
 
             $coredata->save();
         }

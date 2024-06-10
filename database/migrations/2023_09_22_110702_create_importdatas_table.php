@@ -17,18 +17,22 @@ return new class extends Migration
             $table->string('brand');
             $table->string('store_name');
             $table->string('store_address');
-            $table->string('opening_time');
-            $table->string('closing_time');
+            // $table->string('opening_time');
+            // $table->string('closing_time');
+            $table->string('city');
             $table->string('store_location');
             $table->string('store_location_latitude');
             $table->string('store_location_longitude');
             $table->text('diesel')->nullable()->default(null);
             $table->text('gasoline')->nullable()->default(null);
-            $table->string('otherinfo')->nullable();
+            $table->string('landmarks')->nullable();
             $table->string('brand_logo')->nullable();
             $table->string('store_image')->nullable();
-            $table->string('forfil_price_diesel')->nullable();
-            $table->string('forfil_price_gasoline')->nullable();
+            $table->double('forfil_price_diesel')->nullable();
+            $table->double('forfil_price_gasoline')->nullable();
+            $table->string('modify_name')->default('Firstclick');
+            $table->string('status')->default('Updated');
+            $table->string('custom')->nullable();
             $table->timestamps();
         });
     }

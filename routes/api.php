@@ -43,13 +43,6 @@ Route::middleware('auth:sanctum')->group( function () {
 
     Route::delete('/user/delete', [AuthController::class,'userdelete']);
 
-    //for brand logo upload
-    Route::post('/add/brand/logo', [DataController::class,'addbrandlogo']);
-
-    Route::get('/get/brand/logo', [DataController::class,'getbrandlogo']);
-
-    //for store image upload
-    Route::post('/add/store/image',[DataController::class,'addstoreimage']);
 
     Route::get('/get/store/image', [DataController::class,'getstoreimage']);
 
@@ -57,8 +50,30 @@ Route::middleware('auth:sanctum')->group( function () {
 
 });
 
+//for brand logo upload
+Route::post('/add/brand/logo', [DataController::class,'addbrandlogo']);
+
+//for store image upload
+Route::post('/add/store/image',[DataController::class,'addstoreimage']);
+
+Route::get('/get/brand/logo', [DataController::class,'getbrandlogo']);
+
 Route::post('/user/create', [AuthController::class,'signup']);
 
 Route::post('/user/login', [AuthController::class,'login']);
 
 Route::post('/user/location', [DataController::class,'userlocation']);
+
+Route::post('/user/rejected/update/profile', [AuthController::class,'rejectedupd']);
+
+Route::get('/get/ads', [DataController::class,'getadsapi']);
+
+Route::post('/edit/request/station/titleprice/fornormaluser', [DataController::class,'reqstationtitlepricefornoruser']);
+
+Route::post('/add/data/manually/for/normal/user', [DataController::class,'adddatamanuallyfornormaluser']);
+
+Route::post('/edit/request/station/storefrontimage/fornormaluser', [DataController::class,'reqstationstorefrontimgfornoruser']);
+
+Route::get('/current/app/version', [DataController::class,'currentappver']);
+
+// Route::post('/device/token/submit', [DataController::class,'devicetokensubmit']);

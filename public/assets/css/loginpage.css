@@ -1,0 +1,125 @@
+.heiwid{
+    height: 100vh;
+    width: 100%;
+}
+.box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    border-radius: 20px;
+}
+
+.dotimg{
+    left: 100px;
+    bottom: 100px;
+}
+.img2{
+    right: 0;
+    bottom: 0px;
+}
+.headtx{
+    color: var(--Grays-10, #05133A);
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 29px; /* 111.538% */
+}
+.button{
+    width: 352px;
+    height: 58px;
+    border-radius: 15px;
+    background: var(--Primary-03, #A2D5FC);
+    border: none;
+}
+.highlighte{
+    width: 352px;
+    height: 58px;
+    border-radius: 15px;
+    background: var(--Primary-03, #2D77ED);
+    border: none;
+}
+.butttx{
+    color: var(--Grays-00, #FFF);
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 29px; /* 181.25% */
+}
+.forpass{
+    color: var(--Grays-04, #9DB4CB);
+    text-align: right;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+    cursor: pointer;
+}
+.inpfield{
+    width: 352px;
+    height: 58px;
+    border-radius: 15px;
+    border: 1px solid var(--Grays-01, #F1F4F6);
+    background: var(--Grays-00, #FFF);
+    text-indent: 50px;
+    outline: none;
+}
+.inpfield:focus{
+    width: 352px;
+    height: 58px;
+    border-radius: 15px;
+    border: 1px solid var(--Primary, #1A73E8);
+    background: var(--Grays-00, #FFF);
+    box-shadow: 0px 12px 23px 0px rgba(55, 125, 255, 0.06);
+}
+.atsign{
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 18px;
+    left: 13px;
+}
+.locksign{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 18px;
+    left: 14px;
+}
+.eyesign{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 16px;
+    right: 13px;
+    cursor: pointer;
+}
+::placeholder {
+    color: var(--Grays-04, #9DB4CB);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 29px; /* 181.25% */
+}
+.errortx{
+    color: var(--Grays-10, #FC5A5A);
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 10px; /* 111.538% */
+}

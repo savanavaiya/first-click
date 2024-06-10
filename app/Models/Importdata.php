@@ -10,7 +10,7 @@ class Importdata extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id','brand','store_name','store_address','opening_time','closing_time','store_location','store_location_latitude','store_location_longitude','diesel','gasoline','otherinfo','brand_logo','store_image','forfil_price_diesel','forfil_price_gasoline'];
+    protected $fillable = ['user_id','brand','store_name','store_address', 'city', 'store_location','store_location_latitude','store_location_longitude','diesel','gasoline','landmarks','brand_logo','store_image','forfil_price_diesel','forfil_price_gasoline','modify_name','status','custom'];
 
 
     protected function diesel(): Attribute
